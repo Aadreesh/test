@@ -1,0 +1,1 @@
+gcc list.c functions.c test_main.c 
