@@ -46,11 +46,13 @@ void test_ll_chk_temperature()
 
 void test_ll_chk_highest_power()
 {
+    char s[8] = "Second";     
+    char s1[4] = " ON";
     Room *maximum = Chk_highest_power(head);
-    TEST_ASSERT_EQUAL( "Second", maximum->floor); 
+    TEST_ASSERT_EQUAL_STRING( s, maximum->floor); 
     TEST_ASSERT_EQUAL( 205 , maximum->room_no);
     TEST_ASSERT_EQUAL( 123.650002, maximum->power_consumption);
-    TEST_ASSERT_EQUAL(" ON" , maximum->ac_switch);
+    TEST_ASSERT_EQUAL_STRING(s1, maximum->ac_switch);
     TEST_ASSERT_EQUAL( 25.400000, maximum->room_temp);
     free(maximum);
 }
@@ -61,11 +63,11 @@ void test_ll_chk_highest_temperature()
     char s1[] = " OFF";
     Room *highest = Chk_highest_temperature(head);
     // TEST_ASSERT_EQUAL(0,strcmp(s,highest->floor));
-    TEST_ASSERT_STREQUAL("First", *highest->floor); 
+    TEST_ASSERT_EQUAL_STRING(s, highest->floor); 
     TEST_ASSERT_EQUAL( 1 , highest->room_no);
     TEST_ASSERT_EQUAL( 25.000000, highest->power_consumption);
     // TEST_ASSERT_EQUAL(0,strcmp(s1,highest->ac_switch));
-    TEST_ASSERT_EQUAL("OFF" , highest->ac_switch);
+    TEST_ASSERT_EQUAL_STRING(" OFF" , highest->ac_switch);
     TEST_ASSERT_EQUAL( 40.299999, highest->room_temp);
     free(highest);
 
